@@ -9,7 +9,7 @@ def insert_data(conn, table_name, data):
     :param conn: The database connection object
     :param table_name: The name of the destination table
     :type table_name: str
-    :param data: A list of of lists containing the data
+    :param data: A list of lists containing the data
     :type data: list
     """
     cursor = conn.cursor()
@@ -25,7 +25,7 @@ def get_csv(csv_path):
 
     :param csv_path: A CSV file path string
     :type csv_path: str
-    :returns: A list of of lists containing the data
+    :returns: A list of lists containing the data
     """
     with open(csv_path) as f:
         data = list(csv.reader(f))[1:]
@@ -43,7 +43,7 @@ def get_json(json_path):
 
     :param json_path: A JSON file path string
     :type json_path: str
-    :returns: A list of of lists containing the data
+    :returns: A list of lists containing the data
     """
     with open(json_path) as f:
         data = json.load(f)
@@ -69,7 +69,7 @@ def get_table(src_conn, src_table_name):
     :param src_conn: A MySQL source database connection
     :param src_table_name: The source table name
     :type src_table_name: str
-    :returns: A list of of lists containing the data
+    :returns: A list of lists containing the data
     """
     src_cursor = src_conn.cursor()
     src_cursor.execute('select * from {0}'.format(src_table_name))

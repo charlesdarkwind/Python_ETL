@@ -1,4 +1,4 @@
-# ! USED TO FEED 'SOURCE' DB FOR THE EXERCISE ! not part of TP
+# ! USED TO FEED THE 'SOURCE' DB !
 from mod_createDBConnection import connect
 
 
