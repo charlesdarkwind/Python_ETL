@@ -1,4 +1,4 @@
-from mod_createDBConnection import connect
+from mod_db import connect
 from mod_data import get_csv, get_json, get_table, insert_data
 
 # Create source and destination database connections

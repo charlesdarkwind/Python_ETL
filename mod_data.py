@@ -1,6 +1,5 @@
 import csv
 import json
-from mod_helpers import normalize_gender
 
 
 def insert_data(conn, table_name, data):
@@ -18,6 +17,27 @@ def insert_data(conn, table_name, data):
                 values ({1}, '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')'''.format(table_name, *line)
         cursor.execute(insert_command)
     conn.commit()
+
+
+def normalize_gender(src_gender):
+    """Returns "F", "M", "unknown" if none provided, "corrupted" otherwise.
+
+    :param src_gender: string representation of the gender
+    :type src_gender: str
+    """
+    if src_gender is None:
+        return 'unknown'
+    elif type(src_gender) is not str:
+        return 'corrupted'
+
+    gender = src_gender.lower()
+
+    if gender == 'female' or gender == 'f':
+        return 'F'
+    elif gender == 'male' or gender == 'm':
+        return 'M'
+    else:
+        return 'corrupted'
 
 
 def get_csv(csv_path):
